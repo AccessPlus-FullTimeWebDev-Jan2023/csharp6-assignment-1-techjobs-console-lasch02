@@ -143,7 +143,7 @@ namespace TechJobsConsoleAutograded6
                 {
                     Console.WriteLine($"{job.Key}: {job.Value}");
                 }
-                Console.WriteLine("*****\n");
+                Console.WriteLine("*****" + Environment.NewLine);
             }
         }
     }
