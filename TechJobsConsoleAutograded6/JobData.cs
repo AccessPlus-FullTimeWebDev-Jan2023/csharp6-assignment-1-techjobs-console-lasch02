@@ -8,7 +8,7 @@ namespace TechJobsConsoleAutograded6
         static List<Dictionary<string, string>> AllJobs = new List<Dictionary<string, string>>();
         static bool IsDataLoaded = false;
 
-        public static List<Dictionary<string, string>> FindAll()
+        public static List<Dictionary<string, string>> FindAll() 
         {
             LoadData();
             return AllJobs;
@@ -18,7 +18,7 @@ namespace TechJobsConsoleAutograded6
          * Returns a list of all values contained in a given column,
          * without duplicates. 
          */
-        public static List<string> FindAll(string column)
+        public static List<string> FindAll(string column) //this is find by column
         {
             LoadData();
 
@@ -46,7 +46,7 @@ namespace TechJobsConsoleAutograded6
         {
             // load data, if not already loaded
             LoadData();
-
+            //type here
             return null;
         }
 
@@ -62,11 +62,11 @@ namespace TechJobsConsoleAutograded6
             // load data, if not already loaded
             LoadData();
 
-            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>(); //match this
 
-            foreach (Dictionary<string, string> row in AllJobs)
+            foreach (Dictionary<string, string> row in AllJobs) //match this
             {
-                string aValue = row[column];
+                string aValue = row[column];  //match this but instead of column use value
 
 
                 //TODO: Make search case-insensitive
