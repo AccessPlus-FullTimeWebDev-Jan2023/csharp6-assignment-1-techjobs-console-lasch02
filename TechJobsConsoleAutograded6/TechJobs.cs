@@ -136,12 +136,18 @@ namespace TechJobsConsoleAutograded6
         public void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
             //Console.WriteLine("PrintJobs is not implemented yet");
-            //if the list I am iterating thru has not results, print "No results"
+            //if the list I am iterating thru has not results, print "No results" (prevent (break). PrintJobs method from running if someJobs list results is 0 (.Count).  Use C# method for Lists that is similar to .length for arrays)
             foreach (Dictionary<string, string> kvp in someJobs)
             {
                 Console.WriteLine(Environment.NewLine + "*****");
-                foreach (KeyValuePair<string, string> job in kvp)
+                foreach (KeyValuePair<string, string> job in kvp) 
                 {
+                    if (job.Value = null)
+                    {
+                        Console.WriteLine("No results");
+                        break;
+                    }
+
                     Console.WriteLine($"{job.Key}: {job.Value}");
                 }
                 Console.WriteLine("*****" + Environment.NewLine);
