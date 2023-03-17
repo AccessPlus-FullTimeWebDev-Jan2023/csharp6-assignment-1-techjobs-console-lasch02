@@ -61,6 +61,9 @@ namespace TechJobsConsoleAutograded6
                     Console.WriteLine(Environment.NewLine + "Search term: ");
                     string searchTerm = Console.ReadLine();
 
+                    //somewhere here???? I need to add FindbyValue()
+                    //FindByColumnAndValue();
+
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
