@@ -15,10 +15,8 @@ namespace TechJobsConsoleAutograded6
             return AllJobs;
         }
 
-        /*
-         * Returns a list of all values contained in a given column,
-         * without duplicates. 
-         */
+        /* Returns a list of all values contained in a given column,
+         * without duplicates. */
         public static List<string> FindAll(string column) //this is find by column; user inputs a column header (list, then select column header) and this matches the column header with the column value; this prints all jobs values for that column.
         {
             LoadData();
@@ -37,10 +35,7 @@ namespace TechJobsConsoleAutograded6
 
             return values;
         }
-
-        /**
-         * Search all columns for the given term
-         */
+        /* Search all columns for the given term */
 
         //TODO: Complete the FindByValue method
         public static List<Dictionary<string, string>> FindByValue(string value)
@@ -48,26 +43,20 @@ namespace TechJobsConsoleAutograded6
             // load data, if not already loaded
             LoadData();
             //type here
-            //List<string> value = new List<string>();
+            List<string> userInputValue = new List<string>(); //this should be a list of Dictionary not just a list of string.
 
-            //foreach (Dictionary<string, string> row in AllJobs) //match this
-            //{
-            //    string aValue = row[value];  //match this but instead of column use value
-            //    if (!value.Contains(aValue)) //if a aValue isn't already in the values list, add it to the values list
-            //    {
-            //        value.Add(aValue);  //this is where values are added 
-            //    }
-            //    //hint: I have figured out how to print each field in each column, so I want to do something similar to search every field in every row.
-            //    Console.WriteLine(Environment.NewLine + "*****");
-            //    foreach (KeyValuePair<string, string> job in kvp)
-            //    {
-            //        Console.WriteLine($"{job.Key}: {job.Value}");
-            //    }
-            //    Console.WriteLine("*****" + Environment.NewLine);
-            //}
+            foreach (Dictionary<string, string> job in AllJobs) //match this
+            {
+                string aValue = job[value];  //match this but instead of column use value
+                if (!value.Contains(aValue)) //if a aValue isn't already in the values list, add it to the values list
+                {
+                    userInputValue.Add(aValue);  //this is where values are added 
+                }
+                //    //hint: I have figured out how to print each field in each column, so I want to do something similar to search every field in every row.
+       
+            }
 
-
-            return null; ///this was here already
+                return null; ///this was here already
         }
 
         /**
@@ -77,7 +66,7 @@ namespace TechJobsConsoleAutograded6
          * For example, searching for employer "Enterprise" will include results
          * with "Enterprise Holdings, Inc".
          */
-        public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value) //this is taking use input (from Search), by which column they chose and matching the values
+        public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value) //this is taking user input (from Search), by which column they chose and matching the values
         {
             // load data, if not already loaded
             LoadData();
