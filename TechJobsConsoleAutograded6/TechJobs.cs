@@ -61,16 +61,12 @@ namespace TechJobsConsoleAutograded6
                     Console.WriteLine(Environment.NewLine + "Search term: ");
                     string searchTerm = Console.ReadLine();
 
-                    //somewhere here???? I need to add FindbyValue()
-                    //List<Dictionary<string, string>> searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
-                    //PrintJobs(searchResults);
-
-
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
                         //Console.WriteLine("Search all fields not yet implemented.");
-                        Console.WriteLine(FindByValue());
+                        List<Dictionary<string, string>> searchResults = JobData.FindByValue(columnChoice, searchTerm);
+                        PrintJobs(searchResults);
                     }
                     else
                     {
