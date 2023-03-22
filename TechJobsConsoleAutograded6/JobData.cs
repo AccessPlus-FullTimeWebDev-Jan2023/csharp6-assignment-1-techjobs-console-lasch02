@@ -38,32 +38,28 @@ namespace TechJobsConsoleAutograded6
         /* Search all columns for the given term */
 
         //TODO: Complete the FindByValue method
-        public static List<Dictionary<string, string>> FindByValue(string value)
+        public static List<Dictionary<string, string>> FindByValue(string column, string value) //do I put 2 arguments here? User is selecting "Search" first, then by value; i kept getting error until I added.
         {
             // load data, if not already loaded
             LoadData();
             //type here
-            List<Dictionary<string, string>> userInputValue = new List<Dictionary<string, string>>(); //this should be a list of Dictionary not just a list of string.
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>(); //this should be a list of Dictionary not just a list of string.
 
             foreach (Dictionary<string, string> job in AllJobs) //match this
             {
                 string userSearchTerm = job[value];  //match this but instead of column use value
-                if (!value.Contains(aValue)) //if a aValue isn't already in the values list, add it to the values list
+                if (!userSearchTerm.Contains(value)) //if a aValue isn't already in the values list, add it to the values list
                 {
-                    userSearchTerm.Add(userInputValue);  //this is where values are added 
+                    jobs.Add(job);  //this is where values are added 
                 }
                 //    //hint: I have figured out how to print each field in each column, so I want to do something similar to search every field in every row.
               }
                             return null; ///this was here already
         }
 
-        /**
-         * Returns results of search the jobs data by key/value, using
-         * inclusion of the search term.
-         *
-         * For example, searching for employer "Enterprise" will include results
-         * with "Enterprise Holdings, Inc".
-         */
+        /**Returns results of search the jobs data by key/value, using inclusion of the search term. *
+         * For example, searching for employer "Enterprise" will include results with "Enterprise Holdings, Inc".*/
+
         public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value) //this is taking user input (from Search), by which column they chose and matching the values
         {
             // load data, if not already loaded
@@ -74,7 +70,6 @@ namespace TechJobsConsoleAutograded6
             foreach (Dictionary<string, string> row in AllJobs) //match this// iterating thru all the rows
             {
                 string aValue = row[column];  //match this but instead of column use value; user is entering a value; this searches 
-
 
                 //TODO: Make search case-insensitive
                 if (aValue.Contains(value)) //if the value that the user enters matches the search criteria value (ex: location), add it to the row
