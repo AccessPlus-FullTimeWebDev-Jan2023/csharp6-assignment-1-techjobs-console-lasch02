@@ -38,7 +38,7 @@ namespace TechJobsConsoleAutograded6
         /* Search all columns for the given term */
 
         //TODO: Complete the FindByValue method
-        public static List<Dictionary<string, string>> FindByValue(string column, string value) //do I put 2 arguments here? User is selecting "Search" first, then by value; i kept getting error until I added.
+        public static List<Dictionary<string, string>> FindByValue(string value) //do I put 2 arguments here? User is selecting "Search" first, then by value; i kept getting error until I added.
         {
             // load data, if not already loaded
             LoadData();
