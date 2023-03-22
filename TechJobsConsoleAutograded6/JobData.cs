@@ -48,13 +48,17 @@ namespace TechJobsConsoleAutograded6
             foreach (Dictionary<string, string> job in AllJobs) //match this
             {
                 string userSearchTerm = job[value];  //match this but instead of column use value
+                //fix if it isn't to if it "contains"
+                //fix what I am storing in another search term
+                //create another loop
+
                 if (!userSearchTerm.Contains(value)) //if a aValue isn't already in the values list, add it to the values list
                 {
                     jobs.Add(job);  //this is where values are added 
                 }
                 //    //hint: I have figured out how to print each field in each column, so I want to do something similar to search every field in every row.
               }
-                            return null; ///this was here already
+                            return jobs; ///this was here already //I need to change out null to something
         }
 
         /**Returns results of search the jobs data by key/value, using inclusion of the search term. *
