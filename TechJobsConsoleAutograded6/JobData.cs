@@ -43,23 +43,27 @@ namespace TechJobsConsoleAutograded6
             // load data, if not already loaded
             LoadData();
             //type here
-            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>(); //this should be a list of Dictionary not just a list of string.
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>(); //this is creating a list of dictionary entries
 
-            foreach (Dictionary<string, string> job in AllJobs) //match this
+            foreach (Dictionary<string, string> row in AllJobs) //this is iterating through all jobs and pulling 1 row(job) at a time; each row is one combined string
             {
-                string userSearchTerm = job[value];  //match this but instead of column use value
                 //fix if it isn't to if it "contains"
                 //fix what I am storing in another search term
                 //create another loop
-
-                if (!userSearchTerm.Contains(value)) //if a aValue isn't already in the values list, add it to the values list
+                foreach (string key in row.Keys)//this one is iterating thru each cell (separating the row which was one whole string and breaking each stri by it's value), checking the user input to see if it matches each cell.
                 {
-                    jobs.Add(job);  //this is where values are added 
+                    string userValue = row[key]; //this gives me a place to hold the userValue
+
+                    if (userValue.ToLower().Contains(value.ToLower()))
+
+                    {
+                        jobs.Add(row); //this is where values are added 
+                        break; //once a value is found in the row, it will stop iterating that row. This prevents it from iterating thru the rest of the same row and finding the same value in that row
+                    }
                 }
-                //    //hint: I have figured out how to print each field in each column, so I want to do something similar to search every field in every row.
-              }
+            }
                             return jobs; ///this was here already //I need to change out null to something
-        }
+            }
 
         /**Returns results of search the jobs data by key/value, using inclusion of the search term. *
          * For example, searching for employer "Enterprise" will include results with "Enterprise Holdings, Inc".*/
