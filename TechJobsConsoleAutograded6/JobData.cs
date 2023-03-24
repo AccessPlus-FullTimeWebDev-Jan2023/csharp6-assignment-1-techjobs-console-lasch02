@@ -38,7 +38,7 @@ namespace TechJobsConsoleAutograded6
         /* Search all columns for the given term */
 
         //TODO: Complete the FindByValue method
-        public static List<Dictionary<string, string>> FindByValue(string value) //do I put 2 arguments here? User is selecting "Search" first, then by value; i kept getting error until I added.
+        public static List<Dictionary<string, string>> FindByValue(string value) 
         {
             // load data, if not already loaded
             LoadData();
@@ -47,9 +47,6 @@ namespace TechJobsConsoleAutograded6
 
             foreach (Dictionary<string, string> row in AllJobs) //this is iterating through all jobs and pulling 1 row(job) at a time; each row is one combined string
             {
-                //fix if it isn't to if it "contains"
-                //fix what I am storing in another search term
-                //create another loop
                 foreach (string key in row.Keys)//this one is iterating thru each cell (separating the row which was one whole string and breaking each stri by it's value), checking the user input to see if it matches each cell.
                 {
                     string userValue = row[key]; //this gives me a place to hold the userValue
@@ -62,7 +59,7 @@ namespace TechJobsConsoleAutograded6
                     }
                 }
             }
-                            return jobs; ///this was here already //I need to change out null to something
+                        return jobs; ///this was here already //I need to change out null to something
             }
 
         /**Returns results of search the jobs data by key/value, using inclusion of the search term. *
