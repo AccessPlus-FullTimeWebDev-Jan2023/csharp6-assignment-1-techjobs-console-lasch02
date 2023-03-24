@@ -64,11 +64,12 @@ namespace TechJobsConsoleAutograded6
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        //Console.WriteLine("Search all fields not yet implemented.");
+                        PrintJobs(JobData.FindByValue(searchTerm)); //this prints everything by search term
                     }
                     else
                     {
-                        List<Dictionary<string, string>> searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
+                        List<Dictionary<string, string>> searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm); //this prints everything by search term column
                         PrintJobs(searchResults);
                     }
                 }
@@ -135,7 +136,23 @@ namespace TechJobsConsoleAutograded6
         // TODO: complete the PrintJobs method.
         public void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("PrintJobs is not implemented yet");
+            //Console.WriteLine("PrintJobs is not implemented yet");
+            //if the list I am iterating thru has no results, print "No results" (prevent (break). PrintJobs method from running if someJobs list results is 0 (.Count).  Use C# method for Lists that is similar to .length for arrays)
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("No results");
+                //break;
+            }
+
+            foreach (Dictionary<string, string> kvp in someJobs)
+            {
+                Console.WriteLine(Environment.NewLine + "*****");
+                foreach (KeyValuePair<string, string> job in kvp) 
+                {
+                    Console.WriteLine($"{job.Key}: {job.Value}");
+                }
+                Console.WriteLine("*****");
+            }
         }
     }
 }
