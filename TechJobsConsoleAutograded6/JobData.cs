@@ -77,7 +77,7 @@ namespace TechJobsConsoleAutograded6
                 string aValue = row[column];  //match this but instead of column use value; user is entering a value; this searches 
 
                 //TODO: Make search case-insensitive
-                if (aValue.Contains(value)) //if the value that the user enters matches the search criteria value (ex: location), add it to the row
+                if (aValue.ToLower().Contains(value.ToLower())) //if the value that the user enters matches the search criteria value (ex: location), add it to the row
                 {
                     jobs.Add(row);  
                 }
